@@ -180,7 +180,7 @@ function Component1() {
   return (
     <UserContext.Provider value={user}>
       <h1>{`Hello ${user}!`}</h1>
-      <Component2 user={user} />
+      <Component2 />
     </UserContext.Provider>
   );
 }
@@ -229,7 +229,6 @@ function Component5() {
     </>
   );
 }
-
 
 ReactDOM.render(<Component1 />, document.getElementById("root"));
 

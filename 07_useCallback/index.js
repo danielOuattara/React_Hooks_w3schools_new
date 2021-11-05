@@ -1,26 +1,42 @@
+
+/*
+
 React useCallback Hook
+==========================
 
-The React useCallback Hook returns a memoized callback function.
+The React 'useCallback' Hook returns a memoized callback function.
 
-Think of memoization as caching a value so that it does not need to be recalculated.
+Think of 'memoization' as caching a value so that it does not need 
+to be recalculated.
 
-This allows us to isolate resource intensive functions so that they will not automatically run on every render.
+This allows us to isolate resource intensive functions so that they 
+will not automatically run on every render.
 
-The useCallback Hook only runs when one of its dependencies update.
+The 'useCallback' Hook only runs when one of its dependencies update.
 
 This can improve performance.
 
-The useCallback and useMemo Hooks are similar. The main difference is that useMemo returns a memoized value and useCallback returns a memoized function. You can learn more about useMemo in the useMemo chapter.
+The 'useCallback' and 'useMemo' Hooks are similar. 
+The main difference is that 'useMemo' returns a memoized value but  
+'useCallback' returns a memoized function. 
+
+You can learn more about 'useMemo' in the useMemo chapter.
+
+
 Problem
+===========
 
-One reason to use useCallback is to prevent a component from re-rendering unless its props have changed.
+One reason to use 'useCallback' is to prevent a component from re-rendering 
+unless its props have changed.
 
-In this example, you might think that the Todos component will not re-render unless the todos change:
+In this example, you might think that the Todos component will not re-render 
+unless the todos change:
 
-This is a similar example to the one in the React.memo section.
-Example:
+This is a similar example to the one in the React.memo section. 
 
-index.js
+*/
+
+// index.js
 
 import { useState } from "react";
 import ReactDOM from "react-dom";
@@ -33,6 +49,7 @@ const App = () => {
   const increment = () => {
     setCount((c) => c + 1);
   };
+
   const addTodo = () => {
     setTodos((t) => [...t, "New Todo"]);
   };
@@ -51,8 +68,8 @@ const App = () => {
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-Todos.js
 
+// Todos.js
 import { memo } from "react";
 
 const Todos = ({ todos, addTodo }) => {
@@ -70,9 +87,12 @@ const Todos = ({ todos, addTodo }) => {
 
 export default memo(Todos);
 
+/*
+
 Try running this and click the count increment button.
 
-You will notice that the Todos component re-renders even when the todos do not change.
+You will notice that the Todos component re-renders even when the todos 
+do not change.
 
 Why does this not work? We are using memo, so the Todos component should not re-render since neither the todos state nor the addTodo function are changing when the count is incremented.
 
@@ -137,3 +157,5 @@ const Todos = ({ todos, addTodo }) => {
 export default memo(Todos);
 
 Now the Todos component will only re-render when the todos prop changes.
+
+*/

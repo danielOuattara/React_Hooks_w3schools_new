@@ -14,8 +14,8 @@ The 'useRef' Hook allows you to persist values between renders.
 Does Not Cause Re-renders
 ==========================
 
-If we tried to count how many times our application renders using 
-the 'useState' Hook, we would be caught in an infinite loop since 
+If we try to count how many times our application renders using 
+the 'useState' Hook, we will be caught in an infinite loop since 
 this Hook itself causes a re-render.
 
 To avoid this, we can use the useRef Hook.
@@ -51,7 +51,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 /*
 
-'useRef()' only returns one item. It returns an Object called current.
+'useRef()' only returns one item. It returns an Object called 'current'.
 
 When we initialize 'useRef' we set the initial value: useRef(0).
 
@@ -69,14 +69,16 @@ render count increase.
 Accessing DOM Elements
 ==========================
 
-In general, we want to let React handle all DOM manipulation.
+In general, we let React handle all DOM manipulation.
 
-But there are some instances where useRef can be used without causing issues.
+But there are some instances where 'useRef' can be used without causing issues.
 
-In React, we can add a ref attribute to an element to access it directly in the DOM.
-Example:
+In React, we can add a ref attribute to an element to access it directly 
+in the DOM.
 
-Use useRef to focus the input:
+Example: Use 'useRef' to focus the input:
+
+*/
 
 import { useRef } from "react";
 import ReactDOM from "react-dom";
@@ -98,14 +100,19 @@ function App() {
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
+/*
+
+
 Tracking State Changes
+==========================
 
-The useRef Hook can also be used to keep track of previous state values.
+The 'useRef' Hook can also be used to keep track of previous state values.
 
-This is because we are able to persist useRef values between renders.
-Example:
+This is because we are able to persist 'useRef' values between renders.
 
-Use useRef to keep track of previous state values:
+Example: Use 'useRef' to keep track of previous state values:
+
+*/
 
 import { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
@@ -133,8 +140,12 @@ function App() {
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-This time we use a combination of useState, useEffect, and useRef to keep track of the previous state.
 
-In the useEffect, we are updating the useRef current value each time the inputValue is updated by entering text into the input field.
+/*
+This time we use a combination of 'useState', 'useEffect', and 'useRef'
+to keep track of the previous state.
+
+In the 'useEffect', we are updating the 'useRef' current value each 
+time the inputValue is updated by entering text into the input field.
 
 */

@@ -49,12 +49,11 @@ function FavoriteColor() {
 
 /* 
 
-Notice that again, we are destructuring the returned values from useState.
+Notice that again, we are destructuring the returned values from 'useState'.
 
 - The first value, 'color', is our 'current state'.
 
-- The second value, 'setColor', is the fuction that 
-  is used to update our state.
+- The second value, 'setColor', is the fuction that is used to update our state.
 
 - Lastly, we set the initial state to an empty string: useState("")
 
@@ -145,7 +144,7 @@ ReactDOM.render(<Car />, document.getElementById('root'));
 
 /*
 
-Or, we can just use one state and include an object instead!
+Or, we can just use one state and include an object inside!
 
 Example: Create a singe Hook that holds an object:
 
@@ -181,15 +180,15 @@ NOTE : Since we are now tracking an object, we need to reference
        the component. like: car.brand 
 
 
-
 Updating Objects and Arrays in State
 =====================================
 
 When the state is updated, the entire state gets overwritten.
 
 What if we only want to update the color of our car ?
+------------------------------------------------------
 
-If we only called  */ setCar({color: "blue"})  /*
+If we only called  */ setCar({ color: "blue" })  /*
 this would remove the brand, model, and year from our state.
 
 We can use the JavaScript spread operator to help us.
@@ -211,11 +210,14 @@ function Car() {
   });
 
   const updateColor0 = () => { // This is not good in Async cases
-    setCar( () =>  {
-        return {...car, color: "blue"} 
-    });
+    setCar({...car, color: "blue"} );
   }
 
+  const updateColor = () => { // GOod !
+    setCar( () => {
+      return { ...car, color: "blue" }
+    });
+  }
   const updateColor = () => { // GOod !
     setCar( (previousState) => {
       return { ...previousState, color: "blue" }
